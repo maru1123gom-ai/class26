@@ -77,11 +77,25 @@
     1024px 이하 표시
     */
       header .m-nav-btn{
-        display: none;
+        /* display: none; */
       }
+   @media (min-width:1025px){
+    /* 장비특성에 맞는 클래스명으로 display를 지정하는 것을 권해요 */
+     .mobile-only-block{
+      display: none;
+     }
+
+   }   
+
    @media (max-width:1024px){
+    /* 장비의 특정조건에 따라 표시 설정 */
     .pc-only{
       display: none !important;
+    }
+
+    /* 장비특성에 맞는 클래스명으로 display를 지정하는 것을 권해요 */
+    .mobile-only-block{
+      display: block;
     }
    }/*@media (max-width:1024px){*/   
   </style>
@@ -107,7 +121,7 @@
         </div>
         <!--//.util -->
         <!-- div.m-nav-btn.mobile-only -->
-        <div class="m-nav-btn mobile-only">
+        <div class="m-nav-btn mobile-only-block">
           <img src="images/menu.png" alt="모바일 사이드 메뉴 펼치기">
         </div>
       </div>

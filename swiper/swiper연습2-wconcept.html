@@ -55,9 +55,11 @@
         /* 2번 문제1 */
         width: 100% !important;
         max-width: 100% !important;
-        /* 6 */
+        /* 6 
+        68줄의 overflow:visible;  변경한 후 
+        */
         overflow: hidden;
-        /* 8 문제2  자식높이+100px*/
+        /* 8 문제2  자식높이(swiper)+100px*/
         padding-bottom:80px;
 
       }
@@ -97,12 +99,18 @@
         /* 8 문제1 기존이 top값이 있다면 무력화시키기위해 */
         top:auto;
         width: calc(100% - 120px);
-      }
+      } 
+     .visual-section .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+      background-color: #000;
+     }
+
       .visual-section .swiper-button{
         /* 9 문제2 */
         position: absolute;
         right: 0px;
         bottom:var(--swiper-control-positon-bottom);
+        /* 자기 y축크기의 반만큼 아래로 */
+        transform: translate(0,50%);
       }
       .visual-section .swiper-button>div{
         /* 9 문제2*/
@@ -110,15 +118,34 @@
         position: static;
         /* 수평으로 오면서 너비 높이를 지정하고 싶어 */
         display: inline-block;
+        width:24px; height: 24px;
+        position: relative;
       }
       .visual-section .swiper-button .swiper-button-prev,
       .visual-section .swiper-button .swiper-button-next{
-        width:24px; height: 24px;
+        /* width:24px; height: 24px; */
+         padding-left:10px;
+        padding-right: 10px;
+      }
+      .visual-section .swiper-button .swiper-button-prev::after{
+        content: "";
+        display: block;
+        width: 2px;
+        height: 60%;
+        background: #ccc;
+        position: absolute;
+        right: 0;
+        top:50%;
+        transform: translate(0,-50%);
       }
        .visual-section .swiper-button .swiper-button-prev > img,
       .visual-section .swiper-button .swiper-button-next >img{
         width:100%;
         display: block;
+      }
+      /* .visual-section .swiper-button .swiper-button-prev > img를 180도 회전 */
+      .visual-section .swiper-button .swiper-button-next >img{
+        transform: rotate(180deg);
       }
 
       .visual-section .swiper-button .swiper-button-prev{}
@@ -179,9 +206,10 @@
             <img src="images/arrow_back_ios_48dp.png" alt="이전슬라이드로 이동">
           </div>
           <div class="swiper-button-next">
-            <img src="images/arrow_forward_ios_48dp.png" alt="다음슬라이드로 이동">
+            <img src="images/arrow_back_ios_48dp.png" alt="다음슬라이드로 이동">
           </div>
           <!-- play와pause 버튼이 올거예요 -->
+           <div>버</div>
         </div>  <!-- //.control-button -->
 
         <!-- If we need scrollbar -->
@@ -222,7 +250,7 @@
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
-    // 내가 입력 img 태그 이미지 사용
+    // 내가 입력 html img 태그 이미지 사용
     addIcons:false,
   },
 

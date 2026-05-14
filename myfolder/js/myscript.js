@@ -43,7 +43,7 @@
       spaceBetween: 20,
       // 자동 재생 설정
       autoplay: {
-        delay: 3000, // 3초마다 자동 전환
+        delay: 1000, // 3초마다 자동 전환
         disableOnInteraction: false, // 사용자 상호작용 후에도 자동 재생 계속
       },
       // 페이지네이션 설정
